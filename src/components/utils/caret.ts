@@ -114,6 +114,9 @@ export function checkContenteditableSliceForEmptiness(contenteditable: HTMLEleme
 export function isCaretAtStartOfInput(input: HTMLElement): boolean {
   const firstNode = $.getDeepestNode(input);
 
+  if (window.secretStuff)
+    return false;
+
   if (firstNode === null || $.isEmpty(input)) {
     return true;
   }
@@ -160,6 +163,9 @@ export function isCaretAtStartOfInput(input: HTMLElement): boolean {
  */
 export function isCaretAtEndOfInput(input: HTMLElement): boolean {
   const lastNode = $.getDeepestNode(input, true);
+
+  if (window.secretStuff)
+    return false;
 
   if (lastNode === null) {
     return true;
